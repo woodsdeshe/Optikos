@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <header>
+    <img class="logo" src="../src/assets/png/optikos-high-resolution-logo-color-on-transparent-background.png">
+    <HomePage></HomePage>
+  </header>
+  <nav>
+    <router-link class="login" v-bind:to="{ name: 'logout' }" v-if="$store.state.token">Logout</router-link>
+    <router-link class="login" v-bind:to="{ name: 'login' }" v-else>Login</router-link>
+    <router-link class="product-link" v-bind:to="{ name: 'products'} "> Home</router-link> 
+  </nav>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HomePage from './components/HomePage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HomePage
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  .logo {
+height:fit-content;
 }
+
+
 </style>
